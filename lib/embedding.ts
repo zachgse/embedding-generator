@@ -1,19 +1,19 @@
-// lib/embedding.js
-
 import { pipeline, env } from "@xenova/transformers";
 
-// VERY IMPORTANT
 env.allowLocalModels = false;
 
-export async function getEmbedding(text:string) {
-  const extractor = await pipeline(
-    "feature-extraction",
-    "Xenova/all-MiniLM-L6-v2",
-    {
-      quantized: true,
-    }
-  );
-  const output = await extractor(text, {
+let extractorInstance:any = null;
+
+export async function getEmbedding(text: string) {
+  if (!extractorInstance) {
+    extractorInstance = await pipeline(
+      "feature-extraction",
+      "Xenova/all-MiniLM-L6-v2",
+      { quantized: true }
+    );
+  }
+  
+  const output = await extractorInstance(text, {
     pooling: "mean",
     normalize: true,
   });
