@@ -1,22 +1,17 @@
-import { pipeline } from "@xenova/transformers";
 import { NextRequest, NextResponse } from "next/server";
+import { getEmbedding } from "../../../../lib/embedding";
 
-const extractor = await pipeline(
-    'feature-extraction',
-    'Xenova/all-MiniLM-L6-v2'
-);
+export const runtime = "nodejs";
 
 export async function POST(request:NextRequest) { 
     try {
         const data = await request.json();
-        const output = await extractor(data,{
-            pooling:"mean",
-            normalize:true
-        });
+        const embedding = await getEmbedding(data);
+        // console.log("embedding info ", embedding);
         return NextResponse.json(
             {
                 text: data,
-                embedding: output.tolist()[0]
+                embedding: embedding
             },
             {
                 status: 200

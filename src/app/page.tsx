@@ -98,10 +98,13 @@ export default function Home() {
       {result && (
       <div className="bg-gray-100 w-full min-h-fit flex flex-col gap-2 p-4">
         <div className="flex items-center">
-          <p>Embedded value for text: <span className="font-semibold">{result?.text}</span></p>
+          <p className="font-semibold">Embedded value for text:</p>
           <Clipboard onClick={handleCopy} size={24} className="ms-auto cursor-pointer"/>
         </div>
-        <div className="flex flex-wrap text-xs">
+        <p>
+          {result?.text}
+        </p>
+        <div className="flex flex-wrap text-xs mt-4">
         [
         {result.embedding.map((r,index) => (
           <p key={index}>
