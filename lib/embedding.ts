@@ -2,7 +2,8 @@
 
 import { pipeline, env } from "@xenova/transformers";
 
-// VERY IMPORTANT
+// FORCE WASM ONLY
+env.backends.onnx = false;
 env.allowLocalModels = false;
 
 let extractor:any = null;
