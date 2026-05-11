@@ -1,4 +1,4 @@
-import { pipeline } from "@huggingface/transformers";
+import { pipeline } from "@xenova/transformers";
 import { NextRequest, NextResponse } from "next/server";
 
 const extractor = await pipeline(
