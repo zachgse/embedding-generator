@@ -1,9 +1,6 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ["@xenova/transformers", "onnxruntime-web"],
-  }
+  serverExternalPackages: ['@xenova/transformers'],
 };
-
 export default nextConfig;
