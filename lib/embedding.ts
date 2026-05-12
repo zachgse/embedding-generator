@@ -1,18 +1,22 @@
-import { pipeline, env } from "@xenova/transformers";
-
-env.allowLocalModels = false;
-
-let extractorInstance:any = null;
+let extractorInstance: any = null;
 
 export async function getEmbedding(text: string) {
   if (!extractorInstance) {
+    const { pipeline, env } = await import("@xenova/transformers");
+    env.allowLocalModels = false;
+    env.useBrowserCache = false;
+    env.backends.onnx.wasm.wasmPaths =
+      "https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/";
+
     extractorInstance = await pipeline(
       "feature-extraction",
       "Xenova/all-MiniLM-L6-v2",
-      { quantized: true }
+      {
+        quantized: true,
+      }
     );
   }
-  
+
   const output = await extractorInstance(text, {
     pooling: "mean",
     normalize: true,

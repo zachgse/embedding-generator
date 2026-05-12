@@ -7,7 +7,6 @@ export async function POST(request:NextRequest) {
     try {
         const data = await request.json();
         const embedding = await getEmbedding(data);
-        // console.log("embedding info ", embedding);
         return NextResponse.json(
             {
                 text: data,
