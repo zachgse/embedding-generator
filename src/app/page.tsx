@@ -72,7 +72,7 @@ export default function Home() {
   return (
     <div className="min-h-screen w-full flex flex-col gap-4 py-12">
       <p className="text-gray-500 text-xs font-semibold">
-        The model used for embedding data is "all-MiniLM-L6-v2" which generates 384 embedded values mainly used for RAGs
+        The model used for embedding data is "gemini-embedding-2" which generates 3072 embedded values mainly used for RAGs
       </p>
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <textarea {...register("message", {required:"Message is required"})} onKeyDown={handleKeyDown}

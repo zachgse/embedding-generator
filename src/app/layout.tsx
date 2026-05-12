@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify";
 
 export const metadata: Metadata = {
   title: "Vector embedding generator",
-  description: "Vector embedding generator using the all-MiniLM-L6-v2 model to generate chunks of data from text. Design and developed by Zach Estrella.",
+  description: "Vector embedding generator using the gemini-embedding-2 model to generate chunks of data from text. Design and developed by Zach Estrella.",
 };
 
 export default function RootLayout({
