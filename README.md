@@ -1,6 +1,6 @@
 # Embedded Value Generator
 
-A lightweight embedding generator built with Next.js and the `all-MiniLM-L6-v2` transformer model using Hugging Face Transformers.js.
+A lightweight embedding generator built with Next.js and the `gemini-embedding-2` model using Google Gemini.
 
 This application converts text into vector embeddings for AI-powered applications such as:
 - RAG (Retrieval-Augmented Generation)
@@ -14,7 +14,7 @@ This application converts text into vector embeddings for AI-powered application
 # Features
 
 - Generate embeddings from text input
-- Powered by `all-MiniLM-L6-v2`
+- Powered by `gemini-embedding-2`
 - Lightweight and beginner-friendly
 - Frontend loading states
 - Backend error handling
@@ -30,7 +30,7 @@ This application converts text into vector embeddings for AI-powered application
 - React 19
 - TypeScript
 - Tailwind CSS v4
-- Hugging Face Transformers.js
+- Google Gen AI
 - React Hook Form
 - React Toastify
 
@@ -117,9 +117,9 @@ The application includes:
 
 # Model Used
 
-`all-MiniLM-L6-v2`
+`gemini-embedding-2`
 
-A lightweight open-source sentence-transformer model optimized for semantic embeddings and fast inference.
+A lightweight open-source semantic embedding by Google Gemini
 
 ---
 
